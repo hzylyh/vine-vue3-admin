@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
+  // 解决naive和tailwind样式冲突
+  // corePlugins:{
+  //   preflight: false
+  // },
   content: [
     './index.html',
     './src/**/*.{vue,js,ts,jsx,tsx}',

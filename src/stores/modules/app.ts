@@ -20,7 +20,7 @@ function handleSidebarStatus(opened: boolean) {
   opened ? setSidebarStatus(SIDEBAR_OPENED) : setSidebarStatus(SIDEBAR_CLOSED)
 }
 
-export const useAppStore = defineStore('counter', () => {
+export const useAppStore = defineStore('app', () => {
   /** 侧边栏状态 */
   const sidebar: Sidebar = reactive({
     collapsed: getSidebarStatus() !== SIDEBAR_CLOSED

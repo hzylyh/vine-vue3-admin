@@ -5,6 +5,13 @@ const Layouts = () => import("@/layout/LayoutIndex.vue")
 /** 常驻路由 */
 export const constantRoutes: RouteRecordRaw[] = [
   {
+    path: "/login",
+    component: () => import("@/views/login/LoginIndex.vue"),
+    meta: {
+      hidden: true
+    }
+  },
+  {
     path: "/redirect",
     component: Layouts,
     meta: {
@@ -32,13 +39,6 @@ export const constantRoutes: RouteRecordRaw[] = [
     },
     alias: "/:pathMatch(.*)*"
   },
-  // {
-  //   path: "/login",
-  //   component: () => import("@/views/login/RedirectIndex.vue"),
-  //   meta: {
-  //     hidden: true
-  //   }
-  // },
   {
     path: "/",
     component: Layouts,
