@@ -94,40 +94,40 @@ const handleLogin = () => {
 
 <template>
   <div class="flex flex-row h-full items-center justify-center">
-    <div class="h-[300px] w-[450px] border-[1px] p-3">
-      <div class="border-b-[1px] text-4xl text-center pb-2">宙腾CMS</div>
+    <div class="h-300px w-450px border p-3">
+      <div class="border-b text-4xl text-center pb-2">宙腾CMS</div>
       <div class="py-6">
-        <NForm ref="formRef"
+        <n-form ref="formRef"
                :label-width="86"
                label-placement="left"
                :model="loginFormData"
                :rules="rules">
-          <NFormItem path="username">
-            <NInput v-model:value="loginFormData.username"
+          <n-form-item path="username">
+            <n-input v-model:value="loginFormData.username"
                     placeholder="用户名">
               <template #prefix>
-                <NIcon :component="PersonCircleOutline"/>
+                <n-icon :component="PersonCircleOutline"/>
               </template>
-            </NInput>
-          </NFormItem>
-          <NFormItem path="password">
-            <NInput v-model:value="loginFormData.password"
+            </n-input>
+          </n-form-item>
+          <n-form-item path="password">
+            <n-input v-model:value="loginFormData.password"
                     type="password"
                     placeholder="密码"
                     @keydown.enter.prevent>
               <template #prefix>
-                <NIcon :component="LockClosedOutline"/>
+                <n-icon :component="LockClosedOutline"/>
               </template>
-            </NInput>
-          </NFormItem>
-          <NFormItem>
-            <NButton type="primary"
+            </n-input>
+          </n-form-item>
+          <n-form-item>
+            <n-button type="primary"
                      :loading="loading"
                      class="w-full"
             @click="handleLogin">登录
-            </NButton>
-          </NFormItem>
-        </NForm>
+            </n-button>
+          </n-form-item>
+        </n-form>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 import './styles/global.less'
-import './assets/tstyle.css'
+import 'virtual:uno.css'
 
 import { createApp } from 'vue'
 import store from "@/stores"

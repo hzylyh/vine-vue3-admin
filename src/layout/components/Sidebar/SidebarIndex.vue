@@ -120,7 +120,7 @@ function expandIcon() {
 </script>
 
 <template>
-  <NMenu
+  <n-menu
       :collapsed="appStore.sidebar.collapsed"
       :collapsed-width="64"
       :collapsed-icon-size="22"
