@@ -1,12 +1,12 @@
 import { type RouteRecordRaw, createRouter, createWebHashHistory, createWebHistory } from "vue-router"
 
-const Layouts = () => import("@/layout/LayoutIndex.vue")
+const Layouts = () => import("@/layout/index.vue")
 
 /** 常驻路由 */
 export const constantRoutes: RouteRecordRaw[] = [
   {
     path: "/login",
-    component: () => import("@/views/login/LoginIndex.vue"),
+    component: () => import("@/views/login/index.vue"),
     meta: {
       hidden: true
     }
@@ -46,7 +46,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     children: [
       {
         path: "dashboard",
-        component: () => import("@/views/dashboard/DashboardIndex.vue"),
+        component: () => import("@/views/dashboard/index.vue"),
         name: "Dashboard",
         meta: {
           title: "首页",
@@ -56,7 +56,7 @@ export const constantRoutes: RouteRecordRaw[] = [
       },
       {
         path: "user",
-        component: () => import("@/views/system/user/UserIndex.vue"),
+        component: () => import("@/views/system/user/index.vue"),
         name: "User",
         meta: {
           title: "用户管理",

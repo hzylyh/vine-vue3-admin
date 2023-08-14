@@ -6,4 +6,5 @@
  * @Path: src/layout/index.ts
  */
 
-export { default as Sidebar } from "./Sidebar/SidebarIndex.vue"
+export { default as Sidebar } from "./Sidebar/index.vue"
+export { default as VineHeader } from "./Header/index.vue"

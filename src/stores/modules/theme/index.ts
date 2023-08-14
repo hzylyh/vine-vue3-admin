@@ -8,14 +8,19 @@
 
 import {defineStore} from "pinia";
 import { darkTheme } from 'naive-ui';
+import {ref} from "vue";
 
 export const useThemeStore = defineStore('theme', () => {
 
-  const darkMode = false
+  const darkMode = ref(false)
 
   const naiveTheme = () => {
-    return darkMode ? darkTheme : undefined
+    return darkMode.value ? darkTheme : undefined
   }
 
-  return {darkMode, naiveTheme}
+  const toggleTheme = () => {
+    darkMode.value = !darkMode.value
+  }
+
+  return {darkMode, naiveTheme, toggleTheme}
 })

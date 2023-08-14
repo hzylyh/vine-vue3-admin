@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {RouterView} from 'vue-router'
-import { NConfigProvider } from 'naive-ui'
+import {darkTheme, NConfigProvider} from 'naive-ui'
 import {useThemeStore} from "@/stores/modules/theme";
 
 const theme = useThemeStore()
@@ -8,7 +8,7 @@ const theme = useThemeStore()
 </script>
 
 <template>
-  <n-config-provider :theme="theme.naiveTheme"
+  <n-config-provider :theme="theme.darkMode ? darkTheme : undefined"
                    class="h-full">
     <router-view/>
   </n-config-provider>
