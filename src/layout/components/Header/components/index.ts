@@ -7,3 +7,5 @@
  */
 
 export { default as ThemeMode } from "./ThemeMode/index.vue"
+export { default as Breadcrumb } from "./Breadcrumb/index.vue"
+export { default as UserAvatar } from "./UserAvatar/index.vue"
