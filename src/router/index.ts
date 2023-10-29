@@ -6,6 +6,7 @@ const Layouts = () => import("@/layout/index.vue")
 export const constantRoutes: RouteRecordRaw[] = [
   {
     path: "/login",
+    name: "Login",
     component: () => import("@/views/login/index.vue"),
     meta: {
       hidden: true

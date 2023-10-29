@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import {NLayout, NLayoutSider, NLayoutContent, NLayoutHeader, NIcon, NScrollbar} from 'naive-ui'
+import {NLayout, NLayoutSider, NLayoutContent, NLayoutHeader} from 'naive-ui'
 import {VSidebar, VTabView, VHeader, VContent} from './components'
 import {useAppStore} from "@/stores/modules/app"
-import {MenuSharp} from "@vicons/ionicons5";
-import {Breadcrumb, ThemeMode, UserAvatar} from "@/layout/components/Header/components";
 
 
 const appStore = useAppStore()

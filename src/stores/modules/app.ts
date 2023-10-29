@@ -8,8 +8,9 @@
 
 import {defineStore} from "pinia";
 import {SIDEBAR_CLOSED, SIDEBAR_OPENED} from "@/constants/app-key";
-import {reactive, watch} from "vue";
+import {computed, reactive, Ref, ref, UnwrapRef, watch} from "vue";
 import {getSidebarStatus, setSidebarStatus} from "@/utils/cache/local-storage";
+import type {MenuOption} from "naive-ui";
 
 interface Sidebar {
   collapsed: boolean
@@ -26,6 +27,8 @@ export const useAppStore = defineStore('app', () => {
     collapsed: getSidebarStatus() !== SIDEBAR_CLOSED
   })
 
+  const activeMenu = ref("")
+
   /** 监听侧边栏 opened 状态 */
   watch(
     () => sidebar.collapsed,
@@ -34,6 +37,7 @@ export const useAppStore = defineStore('app', () => {
 
   /** 切换侧边栏 */
   const toggleSidebar = () => {
+    console.log("side")
     sidebar.collapsed = !sidebar.collapsed
   }
   /** 关闭侧边栏 */
@@ -41,5 +45,11 @@ export const useAppStore = defineStore('app', () => {
     sidebar.collapsed = false
   }
 
-  return {sidebar, toggleSidebar, closeSidebar}
+  /** 切换路由 */
+  const toggleMenu = (key: string) => {
+    // console.log(key)
+    activeMenu.value = key
+  }
+
+  return {sidebar, activeMenu, toggleSidebar, closeSidebar, toggleMenu}
 })

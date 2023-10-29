@@ -40,25 +40,7 @@ const rules = {
     <div>ddd</div>
     <div>ddd</div>
     <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
-    <div>ddd</div>
+
   </div>
 </template>
 
