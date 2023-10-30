@@ -19,11 +19,11 @@ export default defineConfig({
     port: 5173,
     open: false,
     proxy: {
-      '/api': {
+      '/api/': {
         // target: "http://96.45.170.240:5001",
-        target: "http://localhost:8010",
+        target: "http://localhost:8001",
         changeOrigin: true, // 允许跨域
-        rewrite: path => path.replace('/', '/'),
+        rewrite: path => path.replace('/api/', '/'),
       },
     },
   },
