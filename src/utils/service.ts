@@ -3,11 +3,15 @@ import axios, { type AxiosInstance, type AxiosRequestConfig } from "axios"
 // import { ElMessage } from "element-plus"
 import { get, merge } from "lodash-es"
 import { getToken } from "./cache/cookies"
+import {useUserStoreHook} from "@/stores/modules/user";
+import router from "@/router";
+
 
 /** 退出登录并强制刷新页面（会重定向到登录页） */
 function logout() {
-  // useUserStoreHook().logout()
-  location.reload()
+  useUserStoreHook().logout()
+  // location.reload()
+  router.push('/login')
 }
 
 /** 创建请求实例 */
@@ -29,8 +33,6 @@ function createService() {
       const responseType = response.request?.responseType
       if (responseType === "blob" || responseType === "arraybuffer") return apiData
       // 这个 code 是和后端约定的业务 code
-      // eslint-disable-next-line no-debugger
-      debugger
       const code = response.status
       console.log(apiData)
       // 如果没有 code, 代表这不是项目后端开发的 api
@@ -106,7 +108,8 @@ function createRequest(service: AxiosInstance) {
     const defaultConfig = {
       headers: {
         // 携带 Token
-        Authorization: token ? `Bearer ${token}` : undefined,
+        // Authorization: token ? `Bearer ${token}` : undefined,
+        Authorization: token ? `${token}` : undefined,
         "Content-Type": "application/json"
       },
       timeout: 5000,
