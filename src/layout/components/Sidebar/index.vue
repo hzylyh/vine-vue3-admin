@@ -1,72 +1,59 @@
 <script setup lang="ts">
-import {Component, computed, h, ref, watch} from "vue";
+import {Component, computed, h, onMounted, ref, watch} from "vue";
 import {NIcon, NMenu} from "naive-ui";
 import {RouterLink} from "vue-router";
-// import {BookmarkOutline, CaretDownOutline} from "@vicons/ionicons5";
+import {
+  BookmarkOutline,
+  SpeedometerOutline,
+  CogOutline,
+  AccessibilityOutline,
+  PeopleOutline,
+  CaretDownOutline
+} from "@vicons/ionicons5";
 import {useAppStore} from "@/stores/modules/app"
-import { type MenuInst, MenuOption } from 'naive-ui'
+import {MenuOption} from 'naive-ui'
+import router from "@/router";
+
+const props = defineProps<{routes: MenuOption[]}>()
 
 const appStore = useAppStore()
 
-const isCollapse = computed(() => appStore.sidebar.collapsed)
-const activeMenu = computed(() => appStore.activeMenu)
+// const isCollapse = computed(() => appStore.sidebar.collapsed)
+const activeMenu = computed(() => router.currentRoute.value.name)
 // const
 
-const menuOptions: MenuOption[] = [
-  {
-    label: '仪表盘',
-    type: 'route',
-    path: 'Dashboard',
-    key: 'dashboard',
-    // icon: renderIcon(CaretDownOutline)
-  },
-  {
-    label: '系统管理',
-    key: 'system',
-    children: [
-      {
-        label: '用户管理',
-        type: 'route',
-        path: 'User',
-        key: 'user',
-      },
-      {
-        label: '角色管理',
-        key: 'beverage',
-      },
-      {
-        label: '权限管理',
-        key: 'food',
-      }
-    ]
-  }
-]
+// 组件需要解决的问题
+// 1. 菜单项获取
+// 2. 导航跟另外的tab页签的联动，也就是通信问题
+// 3. 导航栏的展开与收起
 
-const selectedKey = ref('user')
+onMounted(() => {
+  console.log(props.routes)
+  console.log(router.currentRoute)
+})
+
+
 // const menuInstRef = ref<MenuInst | null>(null)
 
+//
+// watch(activeMenu, (newValue: MenuOption) => {
+//       console.log(newValue)
+//     },
+//     {deep: true})
 
-watch(activeMenu, (newValue: MenuOption) => {
-      console.log(newValue)
-    },
-    {deep: true})
-
-function selectAndExpand (key: string) {
-  selectedKey.value = key
-  // menuInstRef.value?.showOption(key)
-}
-
-function renderIcon (icon: Component) {
-  return () => h(NIcon, null, { default: () => h(icon) })
+function renderIcon(icon: Component) {
+  return () => h(NIcon, null, {default: () => h(icon)})
 }
 
 
 function renderMenuLabel(option: MenuOption) {
   if ('type' in option) {
     if (option['type'] === 'route') {
-      return h(RouterLink, {
+      return h(
+          RouterLink,
+          {
             to: {
-              name: option.path
+              name: option.name
             }
           },
           {default: () => option.label as string}
@@ -96,21 +83,17 @@ function renderMenuLabel(option: MenuOption) {
 // }
 
 const handleUpdate = (key: string, item: MenuOption) => {
-  appStore.toggleMenu(item)
-  selectAndExpand(key)
+  console.log(key, item)
 }
 </script>
 
 <template>
-  <n-menu
-      v-model:value="selectedKey"
-      :collapsed="isCollapse"
-      :collapsed-width="64"
-      :collapsed-icon-size="22"
-      :options="menuOptions"
-      :render-label="renderMenuLabel"
-      :on-update:value="handleUpdate"
-  />
+  <n-menu :options="routes"
+          v-model:value="activeMenu"
+          key-field="name"
+          label-field="label"
+          @update:value="handleUpdate"
+          :render-label="renderMenuLabel"/>
 </template>
 
 <style scoped>

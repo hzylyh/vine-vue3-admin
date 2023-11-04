@@ -24,10 +24,9 @@ function handleSidebarStatus(opened: boolean) {
 export const useAppStore = defineStore('app', () => {
   /** 侧边栏状态 */
   const sidebar: Sidebar = reactive({
-    collapsed: getSidebarStatus() !== SIDEBAR_CLOSED
+    collapsed: getSidebarStatus() !== SIDEBAR_CLOSED,
   })
 
-  const activeMenu = ref("")
 
   /** 监听侧边栏 opened 状态 */
   watch(
@@ -45,11 +44,11 @@ export const useAppStore = defineStore('app', () => {
     sidebar.collapsed = false
   }
 
-  /** 切换路由 */
-  const toggleMenu = (key: string) => {
-    // console.log(key)
-    activeMenu.value = key
-  }
+  // /** 切换路由 */
+  // const toggleMenu = (key: string) => {
+  //   // console.log(key)
+  //   sidebar.activeMenu = key
+  // }
 
-  return {sidebar, activeMenu, toggleSidebar, closeSidebar, toggleMenu}
+  return {sidebar, toggleSidebar, closeSidebar}
 })

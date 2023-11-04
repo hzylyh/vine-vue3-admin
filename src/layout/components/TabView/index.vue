@@ -18,16 +18,16 @@ const route = reactive([
 const activeTab = computed(() => appStore.activeMenu)
 
 const activeTab1 = ref("")
+//
+// watch(activeTab, (newValue: MenuOption) => {
+//       activeTab1.value = newValue.value.path
+// },
+//     {deep: true})
 
-watch(activeTab, (newValue: MenuOption) => {
-      activeTab1.value = newValue.value.path
-},
-    {deep: true})
-
-const handleUpdate = (value: string) => {
-  appStore.toggleMenu()
-  router.push({name: value})
-}
+// const handleUpdate = (value: string) => {
+//   appStore.toggleMenu()
+//   router.push({name: value})
+// }
 </script>
 
 <template>
