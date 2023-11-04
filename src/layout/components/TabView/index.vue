@@ -2,41 +2,39 @@
 
 import {MenuOption, NButton, NTab, NTabs} from "naive-ui";
 import ThemeContainer from '@/components/ThemeContainer/index.vue'
-import {computed, reactive, ref, watch} from "vue";
+import {computed, reactive} from "vue";
 import router from "@/router";
-import {useAppStore} from "@/stores/modules/app";
 
 defineOptions({name: 'VTabView'})
-
-const appStore = useAppStore()
 
 const route = reactive([
   {name: 'Dashboard'},
   {name: 'User'}
 ])
 
-const activeTab = computed(() => appStore.activeMenu)
+const activeTab = computed(() => router.currentRoute.value.name)
 
-const activeTab1 = ref("")
-//
-// watch(activeTab, (newValue: MenuOption) => {
-//       activeTab1.value = newValue.value.path
-// },
-//     {deep: true})
+// 处理tab切换
+const handleUpdate = (value: string) => {
+  // appStore.toggleMenu()
+  router.push({name: value})
+}
 
-// const handleUpdate = (value: string) => {
-//   appStore.toggleMenu()
-//   router.push({name: value})
-// }
+// 处理tab关闭
+const handleClose = (name: string) => {
+  console.log(name)
+}
+
 </script>
 
 <template>
   <theme-container>
     <n-tabs class="w-full"
-            v-model:value="activeTab1"
+            v-model:value="activeTab"
             type="card"
             size="small"
             closable
+            @close="handleClose"
             @update:value="handleUpdate">
       <n-tab v-for="(item, index) in route"
              :name="item.name"
