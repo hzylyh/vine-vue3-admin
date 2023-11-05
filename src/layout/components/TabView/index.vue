@@ -4,21 +4,26 @@ import {MenuOption, NButton, NTab, NTabs} from "naive-ui";
 import ThemeContainer from '@/components/ThemeContainer/index.vue'
 import {computed, reactive, watch} from "vue";
 import router from "@/router";
+import {useTabStore} from "@/stores/modules/tab";
 
 defineOptions({name: 'VTabView'})
 
-const tabs = reactive([
+const tabStore = useTabStore()
+
+/*const tabs = reactive([
   {name: 'Dashboard'},
   // {name: 'User'}
-])
+])*/
 
-const activeTab = computed(() => router.currentRoute.value.name)
+const tabs = computed(() => tabStore.tabs)
+
+const activeTab = computed(() => router.currentRoute.value.name as string)
 
 watch(router.currentRoute, (newValue) => {
   console.log(newValue)
   // 如果当前tabs不包含当前路由，就添加进去
-  if (!tabs.some(item => item.name === newValue.name)) {
-    tabs.push({name: newValue.name})
+  if (!tabs.value.some(item => item.name === newValue.name)) {
+    tabs.value.push({name: newValue.name})
   }
 }, {deep: true})
 

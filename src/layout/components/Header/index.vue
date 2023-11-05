@@ -17,7 +17,7 @@ const appStore = useAppStore()
         <menu-sharp/>
       </n-icon>
     </div>
-    <breadcrumb></breadcrumb>
+<!--    <breadcrumb></breadcrumb>-->
   </div>
   <div class="flex h-full space-x-6 items-center">
     <theme-mode></theme-mode>
