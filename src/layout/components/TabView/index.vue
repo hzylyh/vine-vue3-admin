@@ -2,25 +2,32 @@
 
 import {MenuOption, NButton, NTab, NTabs} from "naive-ui";
 import ThemeContainer from '@/components/ThemeContainer/index.vue'
-import {computed, reactive} from "vue";
+import {computed, reactive, watch} from "vue";
 import router from "@/router";
 
 defineOptions({name: 'VTabView'})
 
-const route = reactive([
+const tabs = reactive([
   {name: 'Dashboard'},
-  {name: 'User'}
+  // {name: 'User'}
 ])
 
 const activeTab = computed(() => router.currentRoute.value.name)
 
+watch(router.currentRoute, (newValue) => {
+  console.log(newValue)
+  // 如果当前tabs不包含当前路由，就添加进去
+  if (!tabs.some(item => item.name === newValue.name)) {
+    tabs.push({name: newValue.name})
+  }
+}, {deep: true})
+
 // 处理tab切换
 const handleUpdate = (value: string) => {
-  // appStore.toggleMenu()
   router.push({name: value})
 }
 
-// 处理tab关闭
+// 处理tab关闭，暂未处理
 const handleClose = (name: string) => {
   console.log(name)
 }
@@ -36,7 +43,7 @@ const handleClose = (name: string) => {
             closable
             @close="handleClose"
             @update:value="handleUpdate">
-      <n-tab v-for="(item, index) in route"
+      <n-tab v-for="(item, index) in tabs"
              :name="item.name"
              :key="index">
         {{ item.name }}
