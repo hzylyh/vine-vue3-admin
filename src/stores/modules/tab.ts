@@ -25,7 +25,7 @@ interface TabState {
 
 export const useTabStore = defineStore('tab', () => {
   // 当前在访问的页签列表
-  const tabs = getCachedViews();
+  const tabs: string[] = getCachedViews();
 
   const addTab = (tab: TabInfo) => {
     // if (isInTabRoutes(tab)) return;

@@ -20,10 +20,9 @@ const tabs = computed(() => tabStore.tabs)
 const activeTab = computed(() => router.currentRoute.value.name as string)
 
 watch(router.currentRoute, (newValue) => {
-  console.log(newValue)
   // 如果当前tabs不包含当前路由，就添加进去
-  if (!tabs.value.some(item => item.name === newValue.name)) {
-    tabs.value.push({name: newValue.name})
+  if (!tabs.value.some(item => item === newValue.name)) {
+    tabs.value.push(newValue.name as string)
   }
 }, {deep: true})
 
@@ -32,9 +31,13 @@ const handleUpdate = (value: string) => {
   router.push({name: value})
 }
 
-// 处理tab关闭，暂未处理
+// 处理tab关闭
 const handleClose = (name: string) => {
-  console.log(name)
+  const nameIndex = tabs.value.findIndex((panelName) => panelName === name)
+  tabs.value.splice(nameIndex, 1)
+  if (name === activeTab.value) {
+    router.push({name: tabs.value[Math.min(nameIndex, tabs.value.length - 1)]})
+  }
 }
 
 </script>
@@ -49,9 +52,9 @@ const handleClose = (name: string) => {
             @close="handleClose"
             @update:value="handleUpdate">
       <n-tab v-for="(item, index) in tabs"
-             :name="item.name"
+             :name="item"
              :key="index">
-        {{ item.name }}
+        {{ item }}
       </n-tab>
     </n-tabs>
   </theme-container>
