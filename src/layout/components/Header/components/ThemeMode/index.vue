@@ -3,6 +3,8 @@ import {Moon, Sunny} from "@vicons/ionicons5";
 import {NIcon} from "naive-ui";
 import {useThemeStore} from "@/stores/modules/theme";
 
+defineOptions({name: 'ThemeMode'})
+
 const themeStore = useThemeStore()
 
 function handleChangeTheme() {

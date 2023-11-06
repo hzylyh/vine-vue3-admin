@@ -11,8 +11,12 @@ import {
   CaretDownOutline
 } from "@vicons/ionicons5";
 import {Component, h} from "vue";
+import {useThemeStore} from "@/stores/modules/theme";
+import ThemeContainer from "@/components/ThemeContainer/index.vue";
 
 const appStore = useAppStore()
+
+const theme = useThemeStore()
 
 // const menuOptions: MenuOption[] = [
 //     {
@@ -81,10 +85,12 @@ function renderIcon(icon: Component) {
                        bordered>
         <v-header></v-header>
       </n-layout-header>
-      <v-tab-view class=""></v-tab-view>
-      <n-layout-content embedded>
+
+      <theme-container :mode="theme.darkMode"
+                       class="h-[calc(100vh-56px)]">
+        <v-tab-view class=""></v-tab-view>
         <v-content></v-content>
-      </n-layout-content>
+      </theme-container>
 
     </n-layout>
   </n-layout>

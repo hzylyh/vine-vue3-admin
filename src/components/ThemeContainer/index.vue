@@ -1,17 +1,20 @@
 <script setup lang="ts">
+import {useThemeVars} from "naive-ui";
+
 defineOptions({ name: 'ThemeContainer' });
 interface Props {
-  inverted?: boolean;
+  mode?: boolean;
 }
 
 withDefaults(defineProps<Props>(), {
-  inverted: false
+  mode: false
 });
+
 </script>
 
 <template>
-  <div class="dark:bg-dark dark:text-white dark:text-opacity-82 transition-all"
-       :class="inverted ? 'bg-#001428 text-white' : 'bg-white text-#333639'">
+  <div :class="mode ? 'bg-#18181C text-white' : 'bg-white text-#333639'">
+<!--  <div style="background-color: var(&#45;&#45;n-color); color: var(&#45;&#45;n-text-color)">-->
     <slot></slot>
   </div>
 </template>

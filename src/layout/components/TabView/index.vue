@@ -43,21 +43,35 @@ const handleClose = (name: string) => {
 </script>
 
 <template>
-  <theme-container>
-    <n-tabs class="w-full"
-            v-model:value="activeTab"
-            type="card"
-            size="small"
-            closable
-            @close="handleClose"
-            @update:value="handleUpdate">
-      <n-tab v-for="(item, index) in tabs"
-             :name="item"
-             :key="index">
-        {{ item }}
-      </n-tab>
-    </n-tabs>
-  </theme-container>
+<!--  <theme-container>-->
+<!--    <n-tabs class="w-full"-->
+<!--            v-model:value="activeTab"-->
+<!--            type="card"-->
+<!--            size="small"-->
+<!--            closable-->
+<!--            @close="handleClose"-->
+<!--            @update:value="handleUpdate">-->
+<!--      <n-tab v-for="(item, index) in tabs"-->
+<!--             :name="item"-->
+<!--             :key="index">-->
+<!--        {{ item }}-->
+<!--      </n-tab>-->
+<!--    </n-tabs>-->
+<!--  </theme-container>-->
+
+  <n-tabs class="w-full"
+          v-model:value="activeTab"
+          type="card"
+          size="small"
+          closable
+          @close="handleClose"
+          @update:value="handleUpdate">
+    <n-tab v-for="(item, index) in tabs"
+           :name="item"
+           :key="index">
+      {{ item }}
+    </n-tab>
+  </n-tabs>
 
 </template>
 
