@@ -7,7 +7,7 @@
  */
 
 import {defineStore} from "pinia";
-import {getCachedViews} from "@/utils/cache/local-storage";
+import {getCachedViews, setCachedViews} from "@/utils/cache/local-storage";
 
 
 interface TabInfo {
@@ -25,15 +25,19 @@ interface TabState {
 
 export const useTabStore = defineStore('tab', () => {
   // 当前在访问的页签列表
-  const tabs: string[] = getCachedViews();
+  const tabs: TabInfo[] = getCachedViews();
 
   const addTab = (tab: TabInfo) => {
-    // if (isInTabRoutes(tab)) return;
-    // tabs.push(tab);
-    // localStg.set('multiTabRoutes', tabs);
-    // setCachedViews(tabs);
+    tabs.push(tab);
+    setCachedViews(tabs);
     console.log(tab)
   }
 
-  return  {tabs, addTab}
+  const removeTab = (tab: TabInfo) => {
+    const index = tabs.findIndex(item => item.name === tab.name);
+    tabs.splice(index, 1);
+    setCachedViews(tabs);
+  }
+
+  return  {tabs, addTab, removeTab}
 })

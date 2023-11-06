@@ -48,12 +48,14 @@ const menu: MenuOption[] = [
       },
       {
         label: '角色管理',
+        type: 'route',
         name: 'Role',
         key: 'Role',
         icon: renderIcon(PeopleOutline)
       },
       {
         label: '权限管理',
+        type: 'route',
         name: 'Permission',
         key: 'Permission',
         icon: renderIcon(BookmarkOutline)

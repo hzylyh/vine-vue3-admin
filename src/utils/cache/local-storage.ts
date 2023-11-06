@@ -52,11 +52,9 @@ export const setActiveThemeName = (themeName: ThemeName) => {
 // }
 export const getCachedViews = () => {
   const json = localStorage.getItem(CacheKey.CACHED_VIEWS)
-  // eslint-disable-next-line no-debugger
-  debugger
-  return JSON.parse(json ?? "[]") as string[]
+  return JSON.parse(json ?? "[]")
 }
-export const setCachedViews = (views: string[]) => {
+export const setCachedViews = (views: any[]) => {
   localStorage.setItem(CacheKey.CACHED_VIEWS, JSON.stringify(views))
 }
 //#endregion
