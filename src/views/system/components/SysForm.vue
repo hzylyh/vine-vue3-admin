@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <div class="">
-    <div>
+  <div>
+    <div class="flex flex-row-reverse pb-2">
       <slot name="search"></slot>
     </div>
     <div>

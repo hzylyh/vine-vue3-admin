@@ -54,6 +54,13 @@ const menu: MenuOption[] = [
         icon: renderIcon(PeopleOutline)
       },
       {
+        label: '资源管理',
+        type: 'route',
+        name: 'Resource',
+        key: 'Resource',
+        icon: renderIcon(PeopleOutline)
+      },
+      {
         label: '权限管理',
         type: 'route',
         name: 'Permission',

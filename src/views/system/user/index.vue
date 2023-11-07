@@ -10,51 +10,62 @@ import {
   NInput,
   NModal,
 } from "naive-ui";
-import {h, onMounted, ref} from "vue";
+import type { DataTableColumns } from 'naive-ui'
+import {h, onMounted, reactive, ref} from "vue";
 import SysForm from "@/views/system/components/SysForm.vue";
 import {listUserApi} from "@/api/user";
 
 const showModal = ref(false)
-const tableData = ref([])
+const tableData = ref([] as userInfo[])
 const pagination = {
   pageSize: 10
 }
-const tableColumns = [
-  {
-    "title": "用户名",
-    "key": "username",
-  },
-  {
-    "title": "手机号",
-    "key": "phone",
-  },
-  {
-    "title": "邮箱地址",
-    "key": "email",
-  },
-  {
-    "title": "状态",
-    "key": "status",
-  },
-  {
-    "title": "操作",
-    "key": "action",
-    render (row) {
-      return h(
-          NButton,
-          {
-            type: 'primary',
-            onClick: () => {
-              console.log(row)
-            }
-          },
-          {
-            default: () => '修改'
-          }
-      )
-    }
-  }
-]
+
+type userInfo = {
+  username: string,
+  phone: string,
+  email: string,
+  status: string,
+}
+
+const tableColumns = reactive<DataTableColumns>(
+    [
+      {
+        "title": "用户名",
+        "key": "username",
+      },
+      {
+        "title": "手机号",
+        "key": "phone",
+      },
+      {
+        "title": "邮箱地址",
+        "key": "email",
+      },
+      {
+        "title": "状态",
+        "key": "status",
+      },
+      {
+        "title": "操作",
+        "key": "status",
+        render (row) {
+          return h(
+              NButton,
+              {
+                strong: true,
+                tertiary: true,
+                size: 'small',
+                onClick: () => {
+                  console.log(row)
+                }
+              },
+              { default: () => 'Play' }
+          )
+        }
+      }
+    ]
+)
 
 // 新增用户表单
 const handleAddUser = () => {
@@ -69,6 +80,8 @@ const handleAddUserCancel = () => {
   showModal.value = false
 }
 
+
+// 用户列表查询
 const listUser = () => {
   console.log('listUser')
   listUserApi({page: 1, size: 10}).then(res => {
@@ -77,8 +90,7 @@ const listUser = () => {
   })
 }
 
-
-
+// 页面加载完成后执行
 onMounted(() => {
   listUser()
 })
@@ -87,10 +99,10 @@ onMounted(() => {
 
 <template>
   <div class="flex ">
-    <div class="basis-1/4">
-      ddd
-    </div>
-    <div class="basis-3/4">
+<!--    <div class="basis-1/4">-->
+<!--      ddd-->
+<!--    </div>-->
+    <div class="basis-full p-4">
       <sys-form>
         <template #search>
           <n-button type="primary"
@@ -101,38 +113,6 @@ onMounted(() => {
           <n-data-table :data="tableData"
                         :columns="tableColumns"
                         :pagination="pagination">
-            <thead>
-            <tr>
-              <th>用户编号</th>
-              <th>用户名</th>
-              <th>昵称</th>
-              <th>手机号</th>
-              <th>操作</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>放弃</td>
-              <td>反常的</td>
-              <td>彻底废除</td>
-              <td>...</td>
-              <td>
-                <n-button text type="primary">
-                  修改
-                </n-button>
-                <n-button text type="primary">
-                  删除
-                </n-button>
-              </td>
-            </tr>
-            <tr>
-              <td>...</td>
-              <td>...</td>
-              <td>...</td>
-              <td>...</td>
-              <td>...</td>
-            </tr>
-            </tbody>
           </n-data-table>
         </template>
       </sys-form>

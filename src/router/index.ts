@@ -76,6 +76,16 @@ export const constantRoutes: RouteRecordRaw[] = [
         }
       },
       {
+        path: "resource",
+        component: () => import("@/views/system/resource/index.vue"),
+        name: "Resource",
+        meta: {
+          title: "资源管理",
+          svgIcon: "resource",
+          affix: true
+        }
+      },
+      {
         path: "permission",
         component: () => import("@/views/system/permission/index.vue"),
         name: "Permission",
