@@ -1,10 +1,10 @@
 /** 统一处理 localStorage */
 
-import CacheKey from "@/constants/cache-key"
-import { type SidebarOpened, type SidebarClosed } from "@/constants/app-key"
-import { type ThemeName } from "@/hooks/useTheme"
-// import { type TagView } from "@/store/modules/tags-view"
-import { type LayoutSettings } from "@/config/layouts"
+import CacheKey from "/@/constants/cache-key"
+import { type SidebarOpened, type SidebarClosed } from "/@/constants/app-key"
+import { type ThemeName } from "/@/hooks/useTheme"
+// import { type TagView } from "/@/store/modules/tags-view"
+import { type LayoutSettings } from "/@/config/layouts"
 
 //#region 系统布局配置
 export const getConfigLayout = () => {
@@ -52,8 +52,6 @@ export const setActiveThemeName = (themeName: ThemeName) => {
 // }
 export const getCachedViews = () => {
   const json = localStorage.getItem(CacheKey.CACHED_VIEWS)
-  // eslint-disable-next-line no-debugger
-  debugger
   return JSON.parse(json ?? "[]") as string[]
 }
 export const setCachedViews = (views: string[]) => {

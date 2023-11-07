@@ -1,10 +1,10 @@
 import axios, { type AxiosInstance, type AxiosRequestConfig } from "axios"
-// import { useUserStoreHook } from "@/store/modules/user"
+// import { useUserStoreHook } from "/@/store/modules/user"
 // import { ElMessage } from "element-plus"
 import { get, merge } from "lodash-es"
 import { getToken } from "./cache/cookies"
-import {useUserStoreHook} from "@/stores/modules/user";
-import router from "@/router";
+import {useUserStoreHook} from "/@/stores/modules/user";
+import router from "/@/router";
 
 
 /** 退出登录并强制刷新页面（会重定向到登录页） */

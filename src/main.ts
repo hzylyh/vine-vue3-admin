@@ -1,8 +1,8 @@
-import './styles/global.less'
+import './styles/index.less'
 import 'virtual:uno.css'
 
 import { createApp } from 'vue'
-import store from "@/stores"
+import store from "/@/stores"
 
 import App from './App.vue'
 import router from './router'

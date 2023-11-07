@@ -6,7 +6,7 @@
  * @Path: src/api/user/index.ts
  */
 
-import { request } from "@/utils/service"
+import { request } from "/@/utils/service"
 import type * as User from "./types/user"
 
 /** 新增用户 */

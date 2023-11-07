@@ -1,13 +1,13 @@
 import { type RouteRecordRaw, createRouter, createWebHashHistory, createWebHistory } from "vue-router"
 
-const Layouts = () => import("@/layout/index.vue")
+const Layouts = () => import("/@/layout/index.vue")
 
 /** 常驻路由 */
 export const constantRoutes: RouteRecordRaw[] = [
   {
     path: "/login",
     name: "Login",
-    component: () => import("@/views/login/index.vue"),
+    component: () => import("/@/views/login/index.vue"),
     meta: {
       hidden: true
     }
@@ -21,20 +21,20 @@ export const constantRoutes: RouteRecordRaw[] = [
     children: [
       {
         path: "/redirect/:path(.*)",
-        component: () => import("@/views/redirect/RedirectIndex.vue")
+        component: () => import("/@/views/redirect/RedirectIndex.vue")
       }
     ]
   },
   {
     path: "/403",
-    component: () => import("@/views/error-page/403.vue"),
+    component: () => import("/@/views/error-page/403.vue"),
     meta: {
       hidden: true
     }
   },
   {
     path: "/404",
-    component: () => import("@/views/error-page/404.vue"),
+    component: () => import("/@/views/error-page/404.vue"),
     meta: {
       hidden: true
     },
@@ -47,7 +47,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     children: [
       {
         path: "dashboard",
-        component: () => import("@/views/dashboard/index.vue"),
+        component: () => import("/@/views/dashboard/index.vue"),
         name: "Dashboard",
         meta: {
           title: "首页",
@@ -57,7 +57,7 @@ export const constantRoutes: RouteRecordRaw[] = [
       },
       {
         path: "user",
-        component: () => import("@/views/system/user/index.vue"),
+        component: () => import("/@/views/system/user/index.vue"),
         name: "User",
         meta: {
           title: "用户管理",
@@ -104,7 +104,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
     children: [
       {
         path: "page",
-        component: () => import("@/views/permission/page.vue"),
+        component: () => import("/@/views/permission/page.vue"),
         name: "PagePermission",
         meta: {
           title: "页面权限",
@@ -113,7 +113,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
       },
       {
         path: "directive",
-        component: () => import("@/views/permission/directive.vue"),
+        component: () => import("/@/views/permission/directive.vue"),
         name: "DirectivePermission",
         meta: {
           title: "指令权限" // 如果未设置角色，则表示：该页面不需要权限，但会继承根路由的角色

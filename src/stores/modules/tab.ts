@@ -7,7 +7,7 @@
  */
 
 import {defineStore} from "pinia";
-import {getCachedViews} from "@/utils/cache/local-storage";
+import {getCachedViews} from "/@/utils/cache/local-storage";
 
 
 interface TabInfo {
