@@ -7,11 +7,11 @@ import {
   FormRules
 } from 'naive-ui'
 import {PersonCircleOutline, LockClosedOutline} from '@vicons/ionicons5'
-import {addDemoApi} from "@/api/demo";
+import {addDemoApi} from "/@/api/demo";
 import {reactive, ref} from "vue";
 import {useRouter} from "vue-router";
-import {useUserStore} from "@/stores/modules/user";
-import type {LoginRequest} from "@/api/login/types/login";
+import {useUserStore} from "/@/stores/modules/user";
+import type {LoginRequest} from "/@/api/login/types/login";
 
 const router = useRouter()
 /** 登录按钮 Loading */

@@ -10,9 +10,9 @@ import {
   PeopleOutline,
   CaretDownOutline
 } from "@vicons/ionicons5";
-import {useAppStore} from "@/stores/modules/app"
+import {useAppStore} from "/@/stores/modules/app"
 import {MenuOption} from 'naive-ui'
-import router from "@/router";
+import router from "/@/router";
 
 const props = defineProps<{routes: MenuOption[]}>()
 

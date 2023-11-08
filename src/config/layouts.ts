@@ -1,4 +1,4 @@
-import { getConfigLayout } from "@/utils/cache/local-storage"
+import { getConfigLayout } from "/@/utils/cache/local-storage"
 
 /** 项目配置 */
 export interface LayoutSettings {

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 
 import {MenuOption, NButton, NTab, NTabs} from "naive-ui";
-import ThemeContainer from '@/components/ThemeContainer/index.vue'
+import ThemeContainer from '/@/components/ThemeContainer/index.vue'
 import {computed, reactive, watch} from "vue";
-import router from "@/router";
-import {useTabStore} from "@/stores/modules/tab";
+import router from "/@/router";
+import {useTabStore} from "/@/stores/modules/tab";
 
 defineOptions({name: 'VTabView'})
 

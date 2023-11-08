@@ -7,9 +7,9 @@
  */
 
 import {defineStore} from "pinia";
-import {SIDEBAR_CLOSED, SIDEBAR_OPENED} from "@/constants/app-key";
+import {SIDEBAR_CLOSED, SIDEBAR_OPENED} from "/@/constants/app-key";
 import {computed, reactive, Ref, ref, UnwrapRef, watch} from "vue";
-import {getSidebarStatus, setSidebarStatus} from "@/utils/cache/local-storage";
+import {getSidebarStatus, setSidebarStatus} from "/@/utils/cache/local-storage";
 import type {MenuOption} from "naive-ui";
 
 interface Sidebar {

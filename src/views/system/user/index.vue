@@ -11,8 +11,8 @@ import {
   NModal,
 } from "naive-ui";
 import {h, onMounted, ref} from "vue";
-import SysForm from "@/views/system/components/SysForm.vue";
-import {listUserApi} from "@/api/user";
+import SysForm from "/@/views/system/components/SysForm.vue";
+import {listUserApi} from "/@/api/user";
 
 const showModal = ref(false)
 const tableData = ref([])
