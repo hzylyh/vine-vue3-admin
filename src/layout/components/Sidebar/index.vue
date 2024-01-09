@@ -3,7 +3,7 @@ import {Component, computed, h, onMounted, ref, watch} from "vue";
 import {NIcon, NMenu} from "naive-ui";
 import {RouterLink} from "vue-router";
 import {MenuOption} from 'naive-ui'
-import router from "@/router";
+import router from "/@/router";
 
 const props = defineProps<{routes: MenuOption[]}>()
 

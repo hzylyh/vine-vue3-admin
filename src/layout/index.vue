@@ -11,8 +11,8 @@ import {
   CaretDownOutline
 } from "@vicons/ionicons5";
 import {Component, h} from "vue";
-import {useThemeStore} from "@/stores/modules/theme";
-import ThemeContainer from "@/components/ThemeContainer/index.vue";
+import {useThemeStore} from "/@/stores/modules/theme";
+import ThemeContainer from "/@/components/ThemeContainer/index.vue";
 
 const appStore = useAppStore()
 

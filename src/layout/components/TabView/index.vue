@@ -2,8 +2,8 @@
 
 import {NTab, NTabs} from "naive-ui";
 import {computed, watch} from "vue";
-import router from "@/router";
-import {useTabStore} from "@/stores/modules/tab";
+import router from "/@/router";
+import {useTabStore} from "/@/stores/modules/tab";
 
 defineOptions({name: 'VTabView'})
 

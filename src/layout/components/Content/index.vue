@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
 import {NLayout, NLayoutContent} from "naive-ui";
-import ThemeContainer from "@/components/ThemeContainer/index.vue";
-import {useThemeStore} from "@/stores/modules/theme";
+import ThemeContainer from "/@/components/ThemeContainer/index.vue";
+import {useThemeStore} from "/@/stores/modules/theme";
 
 defineOptions({name: 'VContent'})
 

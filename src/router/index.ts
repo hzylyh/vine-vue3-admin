@@ -1,13 +1,13 @@
 import { type RouteRecordRaw, createRouter, createWebHashHistory, createWebHistory } from "vue-router"
 
-const Layouts = () => import("@/layout/index.vue")
+const Layouts = () => import("/@/layout/index.vue")
 
 /** 常驻路由 */
 export const constantRoutes: RouteRecordRaw[] = [
   {
     path: "/login",
     name: "Login",
-    component: () => import("@/views/login/index.vue"),
+    component: () => import("/@/views/login/index.vue"),
     meta: {
       hidden: true
     }
@@ -21,20 +21,20 @@ export const constantRoutes: RouteRecordRaw[] = [
     children: [
       {
         path: "/redirect/:path(.*)",
-        component: () => import("@/views/redirect/RedirectIndex.vue")
+        component: () => import("/@/views/redirect/RedirectIndex.vue")
       }
     ]
   },
   {
     path: "/403",
-    component: () => import("@/views/error-page/403.vue"),
+    component: () => import("/@/views/error-page/403.vue"),
     meta: {
       hidden: true
     }
   },
   {
     path: "/404",
-    component: () => import("@/views/error-page/404.vue"),
+    component: () => import("/@/views/error-page/404.vue"),
     meta: {
       hidden: true
     },
@@ -47,7 +47,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     children: [
       {
         path: "dashboard",
-        component: () => import("@/views/dashboard/index.vue"),
+        component: () => import("/@/views/dashboard/index.vue"),
         name: "Dashboard",
         meta: {
           title: "首页",
@@ -57,7 +57,7 @@ export const constantRoutes: RouteRecordRaw[] = [
       },
       {
         path: "user",
-        component: () => import("@/views/system/user/index.vue"),
+        component: () => import("/@/views/system/user/index.vue"),
         name: "User",
         meta: {
           title: "用户管理",
@@ -67,7 +67,7 @@ export const constantRoutes: RouteRecordRaw[] = [
       },
       {
         path: "role",
-        component: () => import("@/views/system/role/index.vue"),
+        component: () => import("/@/views/system/role/index.vue"),
         name: "Role",
         meta: {
           title: "角色管理",
@@ -77,7 +77,7 @@ export const constantRoutes: RouteRecordRaw[] = [
       },
       {
         path: "resource",
-        component: () => import("@/views/system/resource/index.vue"),
+        component: () => import("/@/views/system/resource/index.vue"),
         name: "Resource",
         meta: {
           title: "资源管理",
@@ -87,7 +87,7 @@ export const constantRoutes: RouteRecordRaw[] = [
       },
       {
         path: "permission",
-        component: () => import("@/views/system/permission/index.vue"),
+        component: () => import("/@/views/system/permission/index.vue"),
         name: "Permission",
         meta: {
           title: "权限管理",
