@@ -1,15 +1,15 @@
 import { ref } from "vue"
-import store from "@/stores"
+import store from "/@/stores"
 import { defineStore } from "pinia"
 // import { usePermissionStore } from "./permission"
 // import { useTagsViewStore } from "./tags-view"
 // import { useSettingsStore } from "./settings"
-import { getToken, removeToken, setToken } from "@/utils/cache/cookies"
-import router, { resetRouter } from "@/router"
-import { loginApi, getUserInfoApi } from "@/api/login"
-import { type LoginRequest } from "@/api/login/types/login"
+import { getToken, removeToken, setToken } from "/@/utils/cache/cookies"
+import router, { resetRouter } from "/@/router"
+import { loginApi, getUserInfoApi } from "/@/api/login"
+import { type LoginRequest } from "/@/api/login/types/login"
 import { type RouteRecordRaw } from "vue-router"
-import asyncRouteSettings from "@/config/async-route"
+import asyncRouteSettings from "/@/config/async-route"
 
 export const useUserStore = defineStore("user", () => {
   const token = ref<string>(getToken() || "")

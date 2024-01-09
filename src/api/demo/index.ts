@@ -5,7 +5,7 @@
  * @Date: 2023/8/3 10:40
  * @Path: src/api/demo/index.ts
  */
-import { request } from "@/utils/service"
+import { request } from "/@/utils/service"
 import type * as Demo from "./types/demo"
 import type {ListDemoResponse} from "./types/demo";
 

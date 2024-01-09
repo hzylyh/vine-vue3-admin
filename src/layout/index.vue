@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {NLayout, NLayoutSider, NLayoutContent, NLayoutHeader, MenuOption, NIcon} from 'naive-ui'
 import {VSidebar, VTabView, VHeader, VContent} from './components'
-import {useAppStore} from "@/stores/modules/app"
+import {useAppStore} from "/@/stores/modules/app"
 import {
   BookmarkOutline,
   SpeedometerOutline,

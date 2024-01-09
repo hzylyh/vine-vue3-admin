@@ -2,7 +2,7 @@
 
 import {MenuSharp} from "@vicons/ionicons5";
 import {NIcon, NLayoutHeader} from "naive-ui";
-import {useAppStore} from "@/stores/modules/app";
+import {useAppStore} from "/@/stores/modules/app";
 import {ThemeMode, Breadcrumb, UserAvatar} from "./components"
 
 defineOptions({ name: 'VHeader' });

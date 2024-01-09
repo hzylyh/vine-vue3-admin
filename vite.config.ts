@@ -1,7 +1,7 @@
-import { fileURLToPath, URL } from 'node:url'
-import UnoCSS from 'unocss/vite'
 import { defineConfig } from 'vite'
+import { resolve } from 'path'
 import vue from '@vitejs/plugin-vue'
+import UnoCSS from 'unocss/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,9 +10,18 @@ export default defineConfig({
     UnoCSS(),
   ],
   resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+    alias: [
+      // /@/xxxx => src/xxxx
+      {
+        find: /\/@\//,
+        replacement: resolve(process.cwd(), '.', 'src') + '/',
+      },
+      // /#/xxxx => types/xxxx
+      {
+        find: /\/#\//,
+        replacement: resolve(process.cwd(), '.', 'types') + '/',
+      },
+    ],
   },
   server: {
     host: '0.0.0.0',
