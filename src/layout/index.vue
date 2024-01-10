@@ -16,7 +16,7 @@ import ThemeContainer from "/@/components/ThemeContainer/index.vue";
 
 const appStore = useAppStore()
 
-const theme = useThemeStore()
+const themeStore = useThemeStore()
 
 // const menuOptions: MenuOption[] = [
 //     {
@@ -32,6 +32,13 @@ const menu: MenuOption[] = [
     type: 'route',
     name: 'Dashboard',
     key: 'Dashboard',
+    icon: renderIcon(SpeedometerOutline)
+  },
+  {
+    label: '工单管理',
+    type: 'route',
+    name: 'Order',
+    key: 'Order',
     icon: renderIcon(SpeedometerOutline)
   },
   {
@@ -95,7 +102,7 @@ function renderIcon(icon: Component) {
         <v-header></v-header>
       </n-layout-header>
 
-      <theme-container :mode="theme.darkMode"
+      <theme-container :mode="themeStore.theme"
                        class="h-[calc(100vh-56px)]">
         <v-tab-view class=""></v-tab-view>
         <v-content></v-content>

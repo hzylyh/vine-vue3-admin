@@ -29,12 +29,24 @@ export const useThemeStore = defineStore('theme', () => {
 
   const themeOverrides = ref({})
 
-  function getSystemTheme() {
-    const themeMedia = window.matchMedia("(prefers-color-scheme: dark)");
-    return themeMedia ? Themes.dark : Themes.light;
+  // function getSystemTheme() {
+  //   const themeMedia = window.matchMedia("(prefers-color-scheme: dark)");
+  //   return themeMedia ? Themes.dark : Themes.light;
+  // }
+
+  // function changeTheme(name: Themes) {
+  //   debugger
+  //   theme.value = name;
+  //   themeOverrides.value = themeVar.get(name);
+  //   naiveTheme.value = naiveThemes.get(name)
+  // }
+
+  const getSystemTheme = () => {
+      const themeMedia = window.matchMedia("(prefers-color-scheme: dark)");
+      return themeMedia ? Themes.dark : Themes.light;
   }
 
-  function changeTheme(name: Themes) {
+  const changeTheme = (name: Themes) => {
     theme.value = name;
     themeOverrides.value = themeVar.get(name);
     naiveTheme.value = naiveThemes.get(name)

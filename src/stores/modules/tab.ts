@@ -28,6 +28,7 @@ export const useTabStore = defineStore('tab', () => {
   const tabs: TabInfo[] = getCachedViews();
 
   const addTab = (tab: TabInfo) => {
+    debugger
     tabs.push(tab);
     setCachedViews(tabs);
     console.log(tab)

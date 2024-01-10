@@ -56,6 +56,16 @@ export const constantRoutes: RouteRecordRaw[] = [
         }
       },
       {
+        path: "order",
+        component: () => import("/@/views/order/index.vue"),
+        name: "Order",
+        meta: {
+          title: "工单管理",
+          svgIcon: "order",
+          affix: true
+        }
+      },
+      {
         path: "user",
         component: () => import("/@/views/system/user/index.vue"),
         name: "User",

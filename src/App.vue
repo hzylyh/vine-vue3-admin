@@ -9,6 +9,7 @@ const themeStore = useThemeStore()
 
 <template>
   <n-config-provider :theme="themeStore.naiveTheme"
+                     :theme-overrides="themeStore.themeOverrides"
                      class="h-full">
     <router-view />
   </n-config-provider>

@@ -16,9 +16,9 @@ function handleChangeTheme() {
 
 <template>
   <div class="flex-center text-18px cursor-pointer"
-       @click="() => handleChangeTheme()">
+       @click="handleChangeTheme">
     <n-icon size="25">
-      <sunny v-if="!themeStore.darkMode" />
+      <sunny v-if="themeStore.theme === Themes.light" />
       <moon v-else />
     </n-icon>
   </div>
