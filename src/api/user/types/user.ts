@@ -8,9 +8,9 @@
 
 export interface ListUserRequest {
   /** 页码 */
-  page: number
+  pageNum: number
   /** 每页数量 */
-  size: number
+  pageSize: number
 }
 
 export interface ListUserResponseData<T> {

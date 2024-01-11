@@ -12,7 +12,7 @@ import {
 } from "naive-ui";
 import type { DataTableColumns } from 'naive-ui'
 import {h, onMounted, reactive, ref} from "vue";
-import SysForm from "/@/views/system/components/SysForm.vue";
+import SysForm from "/@/components/SysForm/index.vue";
 import {listUserApi} from "/@/api/user";
 
 const showModal = ref(false)
@@ -20,7 +20,6 @@ const tableData = ref([] as userInfo[])
 const pagination = {
   pageSize: 10
 }
-
 type userInfo = {
   username: string,
   phone: string,
@@ -125,7 +124,7 @@ onMounted(() => {
       <n-card class="w-800px"
               title="新增用户">
         <n-form ref="formRef"
-                :model="model"
+                :model="formData"
                 :rules="rules"
                 :size="size"
                 label-placement="left">

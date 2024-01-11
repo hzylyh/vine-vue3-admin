@@ -30,7 +30,7 @@ export default defineConfig({
     proxy: {
       '/api/': {
         // target: "http://96.45.170.240:5001",
-        target: "http://localhost:8001",
+        target: "http://localhost:8005",
         changeOrigin: true, // 允许跨域
         rewrite: path => path.replace('/api/', '/'),
       },
