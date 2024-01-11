@@ -33,7 +33,9 @@ const pagination = {
   pageSize: 10
 }
 
+// TODO: 后续从后台字典接口获取
 const statusMap = new Map([["0", "待审批"], ["1", "待处理"], ["2", "已完成"], ["3", "延期"], ["4", "已取消"]])
+const typeMap = new Map([["0", "故障工单"], ["1", "计划工单"]])
 
 let formData = reactive<AddOrderRequest>({
   name: "",
@@ -56,11 +58,14 @@ const tableColumns = reactive<DataTableColumns<RowData>>(
     },
     {
       "title": "工单类型",
-      "key": "phone",
+      "key": "type",
+      render: (row) => {
+        return typeMap.get(row.type)
+      }
     },
     {
       "title": "责任人",
-      "key": "email",
+      "key": "username",
     },
     {
       "title": "状态",
