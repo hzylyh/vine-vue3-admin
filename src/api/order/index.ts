@@ -26,7 +26,7 @@ export function deleteOrderApi(data: Order.DeleteOrderRequest) {
 }
 
 export function getOrderApi(data: Order.GetOrderRequest) {
-  return request<Order.GetOrderResponse<any>>({
+  return request<Order.GetOrderResponse>({
     url: '/order/detail',
     method: 'post',
     data
@@ -36,6 +36,14 @@ export function getOrderApi(data: Order.GetOrderRequest) {
 export function listOrderApi(data: Order.ListOrderRequest) {
   return request<Order.ListOrderResponse<any>>({
     url: '/order/list',
+    method: 'post',
+    data
+  })
+}
+
+export function reviewOrderApi(data: Order.ReviewOrderRequest) {
+  return request<Order.ReviewOrderResponse>({
+    url: '/order/review',
     method: 'post',
     data
   })

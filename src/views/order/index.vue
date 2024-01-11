@@ -14,8 +14,16 @@ import {
 } from 'naive-ui'
 import SysForm from "/@/components/SysForm/index.vue";
 import { h, onMounted, reactive, ref } from 'vue'
-import { addOrderApi, listOrderApi } from '/@/api/order'
-import type { AddOrderRequest, ListOrderRequest } from '/@/api/order/types/order'
+import {
+  addOrderApi,
+  listOrderApi,
+  reviewOrderApi,
+} from '/@/api/order'
+import type {
+  AddOrderRequest,
+  ListOrderRequest,
+  ReviewOrderRequest,
+} from '/@/api/order/types/order'
 import type { RowData } from 'naive-ui/lib/data-table/src/interface'
 
 
@@ -73,9 +81,10 @@ const tableColumns = reactive<DataTableColumns<RowData>>(
             size: 'small',
             onClick: () => {
               console.log(row)
+              handleReviewOrder(row.id)
             }
           },
-          { default: () => 'Play' }
+          { default: () => '审批' }
         )
       }
     }
@@ -98,6 +107,15 @@ const handleAddOrder = () => {
     showModal.value = false
   })
 
+}
+
+const handleReviewOrder = (orderId: number) => {
+  let reqInfo: ReviewOrderRequest = {
+    id: orderId,
+  }
+  reviewOrderApi(reqInfo).then((res) => {
+    console.log(res)
+  })
 }
 </script>
 

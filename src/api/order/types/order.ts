@@ -78,3 +78,10 @@ export interface ListOrderResponse<T> {
   list: T[]
   total: number
 }
+
+export interface ReviewOrderRequest {
+  id: number
+}
+
+export interface ReviewOrderResponse {
+}
